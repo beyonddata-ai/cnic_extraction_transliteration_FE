@@ -278,7 +278,7 @@ const Dashboard = () => {
     setLoading(true);
     await axios({
       method: "post",
-      url: "http://115.186.167.13:8001/api/cnicExtraction/extractCNIC",
+      url: "http://173.212.242.18:8001/api/cnicExtraction/extractCNIC",
       data: apiData,
       headers: {
         //Authorization: "Bearer " + props.accessToken,
