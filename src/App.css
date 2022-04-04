@@ -1,0 +1,54 @@
+html,
+body {
+  overflow: hidden;
+}
+.App {
+  font-family: "Lato", sans-serif;
+  height: 100vh;
+}
+
+.heading {
+  font-weight: bold;
+  padding-top: 12px;
+  font-size: 20px;
+  color: #085fab;
+  margin-bottom: 5px;
+}
+
+.continue-button{
+  width: 128px;
+  background-color: #085fab;
+  color: #fff !important;
+}
+
+.continue-button, .reset-button {
+  height: 40px;
+  border-radius: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0.3;
+  border: none;
+}
+
+.reset-button{
+  background: none;
+  Width: 60px;
+  color: #6D6D6D !important; 
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.continue-button.enable, .reset-button.enable {
+  opacity: 1;
+}
+
+button:not(:disabled):hover {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}

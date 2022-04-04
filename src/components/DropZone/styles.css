@@ -1,0 +1,43 @@
+.drop-zone .file {
+  width: 100%;
+  display: flex;
+   margin-left: 70px; 
+   /* height: 31px; 
+  padding: 10px; */
+  border-radius: 10px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: left;
+  color: #a1a1a1;
+  margin-bottom: 2rem;
+}
+/* .drop-zone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+.container {
+  position: relative;
+  width: min-content
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 167px;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: black;
+  border-radius: 10px;
+  margin-top: 0px;
+  margin-left: 95px;
+}
+
+.container:hover .overlay {
+  opacity: 0.5;
+}

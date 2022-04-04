@@ -1,0 +1,11 @@
+{
+    "errors": [
+      { "name": "differentCnics", "value": "Images don't match" },
+      { "name": "manualCheck", "value": "Manual check required" },
+      { "name": "underAge", "value": "Difference between issue date and birth date is not 18 years" },
+      { "name": "invalidDates", "value": "Invalid dates detected on ID Card" },
+      { "name": "cnicExpired", "value": "CNIC has been expired" },
+      { "name": "cnincNearExpiry", "value": "CNIC is near expiry" }
+    ]
+  }
+  

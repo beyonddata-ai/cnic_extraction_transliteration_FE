@@ -1,0 +1,54 @@
+.errIcon{
+    margin-bottom: 7px;
+    margin-right: 10px;
+  }
+  
+  .ant-modal-content .ant-modal-header {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background: #FFDCE5;
+  }
+  
+  .err-modal .ant-modal-footer{
+    background: #FFFFFF;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .err-modal .ant-modal-footer .ant-btn:first-child{
+      display: none;
+  }
+
+  .err-modal .ant-modal-footer .ant-btn:nth-child(2){
+    width: 129px;
+    height: 37.95px;
+    border: 1px solid #F087A3;
+    box-sizing: border-box;
+    border-radius: 65px;
+    background:none;
+    color: #F087A3;
+    margin-right: 28%;
+}
+
+.error-container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column
+
+}
+.error{
+    font-weight: 700;
+    font-size: 18px;
+    color: #000000;
+     margin-top: 25px;
+    margin-bottom: -15px;
+}
+.error-description{
+font-weight: 400;
+font-size: 12px;
+text-align: center;
+color: #A1A1A1;
+}
+

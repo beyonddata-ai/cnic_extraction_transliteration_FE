@@ -1,0 +1,44 @@
+#SideBar .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background: transparent;
+}
+
+#SideBar .ant-menu-vertical .ant-menu-item::after,
+.ant-menu-vertical-left .ant-menu-item::after,
+.ant-menu-vertical-right .ant-menu-item::after,
+.ant-menu-inline .ant-menu-item::after {
+  border-right: none;
+}
+
+#SideBar .ant-menu-vertical .ant-menu-item,
+.ant-menu-vertical-left .ant-menu-item,
+.ant-menu-vertical-right .ant-menu-item,
+.ant-menu-inline .ant-menu-item,
+.ant-menu-vertical .ant-menu-submenu-title,
+.ant-menu-vertical-left .ant-menu-submenu-title,
+.ant-menu-vertical-right .ant-menu-submenu-title,
+.ant-menu-inline .ant-menu-submenu-title {
+  height: 72px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 16px;
+  padding-bottom: 18px;
+}
+
+#SideBar .ant-menu-item,
+.ant-menu-item-only-child:active {
+  background: transparent;
+}
+
+#SideBar .ant-menu-item {
+  -webkit-transition: none;
+  transition: none;
+  transform: none;
+  -webkit-transform: none;
+}
+.title {
+  height: "10vh";
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  /* margin-top: -5px; */
+}

@@ -1,0 +1,21 @@
+.content {
+  // margin: 30px;
+  // margin-top: 10px;
+  margin-left: 70px;
+  height: 100%;
+  padding: 12px 12px 12px 30px;
+  // box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.1);
+  // border-radius: 20px;
+  background: #f5faff;
+  // width: 90%;
+}
+.leftArrow {
+  position: absolute;
+  margin-left: -50px;
+  top: 50%;
+}
+.rightArrow {
+  position: absolute;
+  left: calc(100vw - 55px);
+  top: 50%;
+}

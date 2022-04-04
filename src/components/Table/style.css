@@ -1,0 +1,150 @@
+/* table {
+  border-collapse: separate !important;
+  border-spacing: 0; */
+  /* width: 772px; */
+  /* margin-top: 7px; */
+/* } */
+/* .bordered {
+  border: solid #ccc 1px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+}
+
+td:first-child {
+  width: 150px;
+  font-weight: bold;
+  font-size: 13px;
+  color: #a1a1a1;
+}
+
+
+td:nth-child(2) {
+  width: 330px;
+  text-align: end;
+}
+td:nth-child(3) {
+  width: 330px;
+  font-weight: bold;
+  font-size: 13px;
+  color: #a1a1a1;
+}
+
+.bordered th {
+  font-weight: bold;
+  font-size: 13px;
+  color: #6d6d6d;
+}
+
+.bordered td,
+.bordered th {
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+
+.bordered th{
+  padding: 5px;
+}
+
+.bordered td{
+  padding: 5px 5px 5px 15px;
+}
+
+.bordered td:first-child,
+.bordered th:first-child {
+  border-left: none;
+}
+.bordered th:first-child {
+  -moz-border-radius: 15px 0 0 0;
+  -webkit-border-radius: 15px 0 0 0;
+  border-radius: 15px 0 0 0;
+}
+.bordered th:last-child {
+  -moz-border-radius: 0 15px 0 0;
+  -webkit-border-radius: 0 15px 0 0;
+  border-radius: 0 15px 0 0;
+}
+.bordered th:only-child {
+  -moz-border-radius: 15px 15px 0 0;
+  -webkit-border-radius: 15px 15px 0 0;
+  border-radius: 15px 15px 0 0;
+}
+.bordered tr:last-child td:first-child {
+  -moz-border-radius: 0 0 0 15px;
+  -webkit-border-radius: 0 0 0 15px;
+  border-radius: 0 0 0 15px;
+}
+.bordered tr:last-child td:last-child {
+  -moz-border-radius: 0 0 15px 0;
+  -webkit-border-radius: 0 0 15px 0;
+  border-radius: 0 0 15px 0;
+}
+.urdu_font{
+  font-family: "NafeesRegular";
+  font-weight: "normal";
+  font-style: "normal";
+  font-size:15px
+} */
+table {
+  border-collapse: collapse;
+  border-radius: 15px;
+  border-style: hidden; /* hide standard table (collapsed) border */
+  box-shadow: 0 0 0 1px #C4C4C4; /* this draws the table border  */ 
+  font-size: 13px;
+  
+}
+
+td,th {
+  border: 1px solid #ccc;
+}
+
+th{
+  padding: 5px;
+  font-weight: 700;
+}
+
+td{
+  padding: 5px 5px 5px 15px;
+}
+
+td:first-child {
+  width: 150px;
+  font-weight: bold;
+  color: #a1a1a1;
+}
+
+
+td:nth-child(2) {
+  width: 330px;
+  text-align: end;
+}
+td:nth-child(3) {
+  width: 330px;
+  font-weight: 700;
+  color: #a1a1a1;
+}
+
+.urdu_font{
+  font-family: "NafeesRegular";
+  font-weight: "normal";
+  font-style: "normal";
+  font-size:15px
+}
+
+@media screen and (max-width: 1400px) {
+  td:nth-child(2) {
+    width: 300px;
+  }
+  td:nth-child(3) {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  td:nth-child(2) {
+    width: 280px;
+  }
+  td:nth-child(3) {
+    width: 280px;
+  }
+}

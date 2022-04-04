@@ -1,0 +1,30 @@
+.radio-component {
+  color: #6d6d6d;
+}
+
+.radio-component:nth-child(2){
+  margin-left: 25px;
+}
+
+.ant-radio-checked + span {
+  color: rgba(0, 0, 0, 0.85) !important;
+}
+
+.ant-radio-checked .ant-radio-inner {
+  border-color: #085fab !important ;
+}
+
+.ant-radio-checked .ant-radio-inner:after {
+  background-color: #085fab;
+}
+
+.ant-radio:hover .ant-radio-inner {
+  border-color: #085fab;
+}
+.ant-radio-checked .ant-radio-inner:focus {
+  border-color: #085fab;
+}
+
+.ant-radio-input:focus + .ant-radio-inner {
+  box-shadow: none;
+}
