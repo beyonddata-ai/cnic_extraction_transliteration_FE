@@ -27,7 +27,7 @@ const Table = (props) => {
                   ? props.cnicNames.eng_fname === null ||
                     props.cnicNames.eng_fname === ""
                     ? props.cnicNames.name_trans
-                    : props.cnicNames.eng_fname
+                    : props.cnicNames.eng_name
                   : ""}
               </td>
             </tr>
