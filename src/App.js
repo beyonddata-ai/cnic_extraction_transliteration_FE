@@ -7,10 +7,11 @@ import Layout, { Content } from "antd/lib/layout/layout";
 import styles from "./App.module.scss";
 import SideBar from "../src/components/SideBar/SideBar.js";
 import Header from "./components/Header/Header.js";
+import WebcamDetection from "./components/WebcamDetection/WebcamDetection.js";
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <Router>
         <Layout style={{ height: "100vh" }}>
           <Header />
@@ -19,7 +20,12 @@ function App() {
             <Layout style={{ backgroundColor: "#F5FAFF" }}>
               <Content className={styles.content}>
                 <Routes>
-                  <Route exact path="/" element={<Dashboard />} />
+                  <Route exact path='/' element={<Dashboard />} />
+                  <Route
+                    exact
+                    path='/webcamDemo'
+                    element={<WebcamDetection />}
+                  />
                 </Routes>
               </Content>
             </Layout>

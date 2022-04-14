@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./styles.css";
 import error from "./../../data.json";
 import errorIcon from "./../../components/Icons/errorIcon.svg";
 import axios from "axios";
+import Webcam from "react-webcam";
 import { message } from "antd";
 import Cliploader from "../../components/Loader/ClipLoader/ClipLoader";
 import Table from "../../components/Table/Table";
 import DropZone from "../../components/DropZone/DropZone";
 import RadioComponent from "../../components/RadioComponent/RadioComponent";
 import ErrorDataModal from "../../components/Modals/ErrorDataModal/ErrorDataModal";
+import WebcamDetection from "../../components/WebcamDetection/WebcamDetection";
+import CropImage from "../../components/CropImage/CropImage";
+import BlurrDetection from "../../components/BlurrDetection/BlurrDetection";
 
 const Dashboard = () => {
   const [rtype, setRtype] = useState({
@@ -31,10 +35,16 @@ const Dashboard = () => {
     eng_fname: null,
     urdu_name: null,
     urdu_fname: null,
+    name_trans: null,
+    fname_trans: null,
   });
+
+  const [chimg, setchimg] = useState(null);
 
   /// temp
   const [gender, setGender] = useState("");
+
+  const webcamRef = useRef();
 
   // const [cnicErrors, setCnicErrors] = useState({
   //   cnicExpired: false,
@@ -50,6 +60,7 @@ const Dashboard = () => {
   });
   const [data, setData] = useState();
   const [reset, setReset] = useState(false);
+  const [activeTab, setActiveTab] = useState(false);
 
   // Setting Data and Continue Button State
   useEffect(() => {
@@ -235,6 +246,7 @@ const Dashboard = () => {
     }
   };
 
+  // Close Modal
   const handleOk = () => {
     setReset(!reset);
     setIsModalVisible(false);
@@ -242,6 +254,7 @@ const Dashboard = () => {
     setDifferentCnics(false);
   };
 
+  // Close Modal
   const handleCancel = () => {
     setReset(!reset);
     setIsModalVisible(false);
@@ -249,10 +262,10 @@ const Dashboard = () => {
     setDifferentCnics(false);
   };
 
+  // Gender Extraction From CNIC
   const genderCheck = (front, back) => {
     if (front !== null) {
       let front_without_dashes = front.replace(/-/g, "");
-      console.log(front_without_dashes[front_without_dashes.length - 1]);
       if (front_without_dashes[front_without_dashes.length - 1] % 2 === 0) {
         setGender("Female");
       } else {
@@ -295,6 +308,8 @@ const Dashboard = () => {
           eng_fname: response.data.result.eng_fname,
           urdu_name: response.data.result.urdu_name,
           urdu_fname: response.data.result.urdu_fname,
+          name_trans: response.data.result.name_trans,
+          fname_trans: response.data.result.fname_trans,
         });
         setResponseId(response.data.result.id);
 
@@ -338,6 +353,8 @@ const Dashboard = () => {
         setLoading(false);
       });
   };
+
+  /// CONTINUE HEREEE
 
   return (
     <>
@@ -570,46 +587,103 @@ const Dashboard = () => {
           </div>
         </div>
         <div className='cnic-flex-child'>
-          <div className='cnic-flex-grandchild'>
-            <div className='image-placeholder'>
-              <div>
-                <p className='heading'>CNIC Front Phot</p>
-              </div>
-              <DropZone
-                setCnicPic={setCnicPic}
-                name='front_image'
-                reset={reset}
-                setEnableContinue={setEnableContinue}
-                setCnicExpired={setCnicExpired}
-                setUnderAge={setUnderAge}
-                setInvalidDates={setInvalidDates}
-                setDifferentCnics={setDifferentCnics}
-                setManualCheck={setManualCheck}
-                setCnincNearExpiry={setCnincNearExpiry}
-                setResponseId={setResponseId}
-                setNames={setNames}
-                setGender={setGender}
-              />
+          <div className='cnic-flex-child-header'>
+            <div
+              className={activeTab === false ? "scroll" : ""}
+              onClick={() => setActiveTab(!activeTab)}>
+              <span>Upload CNIC Images</span>
             </div>
-            <div className='image-placeholder'>
-              <p className='heading'>CNIC Back Photo</p>
-              <DropZone
-                setCnicPic={setCnicPic}
-                name='back_image'
-                reset={reset}
-                setEnableContinue={setEnableContinue}
-                setCnicExpired={setCnicExpired}
-                setUnderAge={setUnderAge}
-                setInvalidDates={setInvalidDates}
-                setDifferentCnics={setDifferentCnics}
-                setManualCheck={setManualCheck}
-                setCnincNearExpiry={setCnincNearExpiry}
-                setResponseId={setResponseId}
-                setNames={setNames}
-                setGender={setGender}
-              />
+            <div>
+              <span
+                className={activeTab === true ? "scroll" : ""}
+                onClick={() => setActiveTab(!activeTab)}>
+                Live Webcam Scan
+              </span>
             </div>
+
+            {/* <div>
+              <p>Upload CNIC Images</p>
+            </div>
+            <div>Live Webcam Scan</div> */}
           </div>
+          {activeTab === false ? (
+            <div className='cnic-flex-child-body'>
+              <div className='cnic-flex-grandchild'>
+                <div className='image-placeholder'>
+                  <div>
+                    <p className='heading'>CNIC Front Phot</p>
+                  </div>
+                  <DropZone
+                    setCnicPic={setCnicPic}
+                    name='front_image'
+                    reset={reset}
+                    setEnableContinue={setEnableContinue}
+                    setCnicExpired={setCnicExpired}
+                    setUnderAge={setUnderAge}
+                    setInvalidDates={setInvalidDates}
+                    setDifferentCnics={setDifferentCnics}
+                    setManualCheck={setManualCheck}
+                    setCnincNearExpiry={setCnincNearExpiry}
+                    setResponseId={setResponseId}
+                    setNames={setNames}
+                    setGender={setGender}
+                  />
+                </div>
+                <div className='image-placeholder'>
+                  <p className='heading'>CNIC Back Photo</p>
+                  <DropZone
+                    setCnicPic={setCnicPic}
+                    name='back_image'
+                    reset={reset}
+                    setEnableContinue={setEnableContinue}
+                    setCnicExpired={setCnicExpired}
+                    setUnderAge={setUnderAge}
+                    setInvalidDates={setInvalidDates}
+                    setDifferentCnics={setDifferentCnics}
+                    setManualCheck={setManualCheck}
+                    setCnincNearExpiry={setCnincNearExpiry}
+                    setResponseId={setResponseId}
+                    setNames={setNames}
+                    setGender={setGender}
+                  />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className='cnic-flex-child-body'>
+              <div className='cnic-flex-grandchild'>
+                <div className='image-placeholder'>
+                  <div>
+                    <p className='heading'>CNIC Front Phot WEBCAM</p>
+                  </div>
+
+                  {/* <BlurrDetection chimg={chimg} /> */}
+
+                  {/* <CropImage chimg={chimg} setchimg={setchimg} /> */}
+
+                  {chimg !== null ? (
+                    <img
+                      src={chimg}
+                      style={{
+                        // width: "300px",
+                        // height: "300px",
+                        marginLeft: "30px",
+                      }}
+                    />
+                  ) : (
+                    <WebcamDetection name='front_image' setchimg={setchimg} />
+                  )}
+
+                  {chimg ? console.log("chimg", chimg) : ""}
+                </div>
+                <div className='image-placeholder'>
+                  <p className='heading'>CNIC Back Photo WEBCAM</p>
+                  {/* <WebcamDetection name='back_image' /> */}
+                </div>
+              </div>
+            </div>
+          )}
+
           <div className='cnic-flex-grandchild'>
             <div>
               <button

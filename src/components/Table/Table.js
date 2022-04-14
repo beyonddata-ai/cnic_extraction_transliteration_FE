@@ -23,10 +23,11 @@ const Table = (props) => {
                   : ""}
               </td>
               <td>
-                {props.differentCnics === false &&
-                (props.cnicNames.eng_name !== null ||
-                  props.cnicNames.eng_name !== "")
-                  ? props.cnicNames.eng_name
+                {props.differentCnics === false
+                  ? props.cnicNames.eng_fname === null ||
+                    props.cnicNames.eng_fname === ""
+                    ? props.cnicNames.name_trans
+                    : props.cnicNames.eng_fname
                   : ""}
               </td>
             </tr>
@@ -41,10 +42,11 @@ const Table = (props) => {
                   : ""}
               </td>
               <td>
-                {props.differentCnics === false &&
-                (props.cnicNames.eng_fname !== null ||
-                  props.cnicNames.eng_fname !== "")
-                  ? props.cnicNames.eng_fname
+                {props.differentCnics === false
+                  ? props.cnicNames.eng_fname === null ||
+                    props.cnicNames.eng_fname === ""
+                    ? props.cnicNames.fname_trans
+                    : props.cnicNames.eng_fname
                   : ""}
               </td>
             </tr>
