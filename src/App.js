@@ -7,7 +7,7 @@ import Layout, { Content } from "antd/lib/layout/layout";
 import styles from "./App.module.scss";
 import SideBar from "../src/components/SideBar/SideBar.js";
 import Header from "./components/Header/Header.js";
-import WebcamDetection from "./components/WebcamDetection/WebcamDetection.js";
+// import WebcamDetection from "./components/WebcamDetection/WebcamDetection.js";
 
 function App() {
   return (
@@ -21,11 +21,11 @@ function App() {
               <Content className={styles.content}>
                 <Routes>
                   <Route exact path='/' element={<Dashboard />} />
-                  <Route
+                  {/* <Route
                     exact
                     path='/webcamDemo'
                     element={<WebcamDetection />}
-                  />
+                  /> */}
                 </Routes>
               </Content>
             </Layout>
