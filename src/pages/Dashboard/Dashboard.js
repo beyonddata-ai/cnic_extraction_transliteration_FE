@@ -3,14 +3,14 @@ import "./styles.css";
 import error from "./../../data.json";
 import errorIcon from "./../../components/Icons/errorIcon.svg";
 import axios from "axios";
-import Webcam from "react-webcam";
+// import Webcam from "react-webcam";
 import { message } from "antd";
 import Cliploader from "../../components/Loader/ClipLoader/ClipLoader";
 import Table from "../../components/Table/Table";
 import DropZone from "../../components/DropZone/DropZone";
 import RadioComponent from "../../components/RadioComponent/RadioComponent";
 import ErrorDataModal from "../../components/Modals/ErrorDataModal/ErrorDataModal";
-import WebcamDetection from "../../components/WebcamDetection/WebcamDetection";
+// import WebcamDetection from "../../components/WebcamDetection/WebcamDetection";
 import CropImage from "../../components/CropImage/CropImage";
 import BlurrDetection from "../../components/BlurrDetection/BlurrDetection";
 
@@ -44,7 +44,7 @@ const Dashboard = () => {
   /// temp
   const [gender, setGender] = useState("");
 
-  const webcamRef = useRef();
+  // const webcamRef = useRef();
 
   // const [cnicErrors, setCnicErrors] = useState({
   //   cnicExpired: false,
@@ -671,7 +671,8 @@ const Dashboard = () => {
                       }}
                     />
                   ) : (
-                    <WebcamDetection name='front_image' setchimg={setchimg} />
+                    // <WebcamDetection name='front_image' setchimg={setchimg} />
+                    ""
                   )}
 
                   {chimg ? console.log("chimg", chimg) : ""}
